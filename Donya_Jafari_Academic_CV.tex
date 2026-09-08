@@ -1,0 +1,265 @@
+%-------------------------
+% Academic CV in LaTeX
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{multicol}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{18pt}
+\fancyfoot[C]{\small\thepage}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}
+  {\vspace{-4pt}\scshape\raggedright\large}
+  {}{0em}{}[\color{black}\titlerule\vspace{-5pt}]
+
+% Make the generated PDF machine-readable and ATS-friendly.
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \item
+  \begin{tabular*}{\linewidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+  \item
+  \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+    \textit{\small #1} & \textit{\small #2} \\
+  \end{tabular*}\vspace{-4pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in,label={},itemsep=6pt,parsep=0pt,topsep=4pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.22in,itemsep=2pt,parsep=0pt,topsep=4pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
+
+%-------------------------------------------
+% CV begins here
+
+\begin{document}
+
+\begin{center}
+  \textbf{\Huge Donya Jafari} \\[4pt]
+  \small
+  +1 647-607-9352 $|$
+  \href{mailto:donya.jafari@mail.utoronto.ca}{donya.jafari@mail.utoronto.ca} $|$
+  \href{https://github.com/Donya-Jafari}{GitHub} $|$
+  \href{https://linkedin.com/in/donyajafari}{LinkedIn} $|$
+  \href{https://scholar.google.com/citations?user=WCK7U_UAAAAJ\&hl=en}{Google Scholar} $|$
+  \href{https://donya-jafari.github.io/about.html?theme=dark}{Portfolio}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {University of Toronto}{Toronto, Canada}
+    {PhD in Mechanical and Industrial Engineering}{Sept. 2026 -- Present}
+    \resumeItemListStart
+      \resumeItem{Supervisor: \href{https://scholar.google.com/citations?hl=en\&user=ZTan-7YAAAAJ\&view_op=list_works\&sortby=pubdate}{Prof. Peyman Mohajerin Esfahani}}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Sharif University of Technology}{Tehran, Iran}
+    {BSc in Computer Engineering; GPA: 18.82/20}{Sept. 2022 -- July 2026}
+
+  \resumeSubheading
+    {Farzanegan High School (SAMPAD)}{Tehran, Iran}
+    {Applied Mathematics and Physics; GPA: 19.97/20}{Sept. 2019 -- July 2022}
+\resumeSubHeadingListEnd
+
+%-----------RESEARCH INTERESTS-----------
+\section{Research Interests}
+\begin{itemize}[leftmargin=0.15in,label={},itemsep=6pt,parsep=0pt,topsep=4pt]
+  \small\item{Machine Learning, Multi-Armed Bandits, Online Learning, Reinforcement Learning, and Optimization}
+\end{itemize}
+
+%-----------PUBLICATIONS-----------
+\section{Publications}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {\href{https://arxiv.org/abs/2603.23140}{DAK-UCB: Diversity-Aware Prompt Routing for LLMs and Generative Models}}{2026}
+    {International Conference on Learning Representations (ICLR)}{}
+    \resumeItemListStart
+      \resumeItem{\textbf{Donya Jafari} and Farzan Farnia}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------RESEARCH EXPERIENCE-----------
+\section{Research Experience}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {AlphaBrain}{Maastricht, Netherlands}
+    {Research Intern}{Apr. 2026 -- Aug. 2026}
+    \resumeItemListStart
+      \resumeItem{Studied optimal transport using inverse optimization techniques.}
+      \resumeItem{Supervised by \href{https://www.ucy.ac.cy/directory/profile/ageorg07}{Prof. Angelos Georghiou} and Prof. Peyman Mohajerin Esfahani.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Adversarial Attacks on Logged Bandits}{Tehran, Iran}
+    {Bachelor's Thesis}{Oct. 2025 -- Mar. 2026}
+    \resumeItemListStart
+      \resumeItem{Supervised by \href{https://scholar.google.com/citations?user=N_zYPC0AAAAJ}{Dr. Amir Najafi}.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Research Project on Recommender Systems}{Remote}
+    {Undergraduate Research Collaborator}{Mar. 2025 -- Sept. 2025}
+    \resumeItemListStart
+      \resumeItem{Supervised by \href{https://som.yale.edu/faculty-research/faculty-directory/vahideh-manshadi}{Prof. Vahideh Manshadi} (Yale University) and \href{https://www.mit.edu/~golrezae/}{Prof. Negin Golrezaei} (MIT).}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Research Project on Multi-Armed Bandit Algorithms}{Remote}
+    {Undergraduate Researcher, The Chinese University of Hong Kong}{Feb. 2025 -- Aug. 2025}
+    \resumeItemListStart
+      \resumeItem{Supervised by \href{https://www.cse.cuhk.edu.hk/people/faculty/farzan-farnia/}{Prof. Farzan Farnia}.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Real-Image Inpainting with Diffusion Models}{Tehran, Iran}
+    {Research Assistant, DML Lab}{July 2024 -- Apr. 2025}
+    \resumeItemListStart
+      \resumeItem{Supervised by \href{https://sharif.edu/~rabiee/}{Prof. Hamid R. Rabiee}.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Quera}{Tehran, Iran}
+    {Machine Learning Intern}{Apr. 2024 -- July 2024}
+    \resumeItemListStart
+      \resumeItem{Applied data analysis to real-world problems.}
+      \resumeItem{Implemented deep learning architectures for a range of applied tasks.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\newpage
+
+%-----------TEACHING EXPERIENCE-----------
+\section{Teaching Experience}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {University of Toronto}{Toronto, Canada}
+    {Head Teaching Assistant, MIE370: Introduction to Machine Learning}{Sept. 2026 -- Present}
+    \resumeItemListStart
+      \resumeItem{Coordinate the teaching assistant team and lead tutorial sessions.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Sharif University of Technology}{Tehran, Iran}
+    {Teaching Assistant}{2023 -- 2026}
+    \resumeItemListStart
+      \resumeItem{Probability and Statistics (Project Head Teaching Assistant)}
+      \resumeItem{Numerical Computation}
+      \resumeItem{Artificial Intelligence}
+      \resumeItem{Machine Learning}
+      \resumeItem{Linear Algebra}
+      \resumeItem{Fundamentals of Programming}
+      \resumeItem{Object-Oriented Programming}
+      \resumeItem{Digital Logic Design}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------WORKSHOPS-----------
+\section{Workshops}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Trustworthiness in Deep Learning}{Aug. 2024 -- Dec. 2024}
+    {Lecturer: \href{https://sharif.edu/~rohban/}{Prof. Mohammad Hossein Rohban}}{}
+
+  \resumeSubheading
+    {Reinforcement Learning}{July 2023 -- Sept. 2023}
+    {Lecturer: \href{https://profiles.stanford.edu/amirhossein-afsharrad}{Amirhossein Afsharrad}}{}
+\resumeSubHeadingListEnd
+
+%-----------PHD COURSES-----------
+\section{PhD Courses}
+\resumeItemListStart
+  \resumeItem{\textbf{MIE1615H: Markov Decision Processes} --- Department of Mechanical and Industrial Engineering, University of Toronto; taught by Prof. Peyman Mohajerin Esfahani.}
+  \resumeItem{\textbf{CSC2600H: Algorithmic Social Systems} --- Department of Computer Science, University of Toronto; taught by \href{https://www.cs.toronto.edu/~marbach/}{Prof. Peter Marbach}.}
+\resumeItemListEnd
+
+%-----------UNDERGRADUATE COURSES-----------
+\section{Undergraduate Courses}
+\vspace{-2pt}
+\setlength{\multicolsep}{4pt}
+\begin{multicols}{2}
+\begin{itemize}[leftmargin=0.18in,itemsep=0pt,topsep=0pt,parsep=0pt,partopsep=0pt]
+  \small
+  \item Artificial Intelligence --- Grade: 19.7/20
+  \item Linear Algebra --- Grade: 20/20
+  \item Data Structures and Algorithms --- Grade: 19.1/20
+  \item Probability and Statistics --- Grade: 18.9/20
+  \item Discrete Mathematics --- Grade: 19.1/20
+  \item Differential Equations --- Grade: 20/20
+  \item General Mathematics 2 --- Grade: 17.5/20
+  \item Object-Oriented Programming --- Grade: 20/20 --- \href{https://github.com/Donya-Jafari/OOP_project}{Course Project: Uber Eats}
+  \item General Mathematics 1 --- Grade: 19.5/20
+  \columnbreak
+  \item Fundamentals of Programming --- Grade: 20/20 --- \href{https://github.com/Donya-Jafari/JungleMarbleBlast_SDL}{Course Project: Jungle Marble Blast Game}
+  \item Theory of Machines and Languages --- Grade: 17.5/20
+  \item Numerical Computation --- Grade: 19.3/20
+  \item Machine Learning --- Grade: 20/20
+  \item Algorithm Design --- Grade: 18.7/20
+  \item Convex Optimization --- Grade: 18.4/20
+  \item Game Theory --- Grade: 20/20
+  \item Compiler Design --- Grade: 20/20
+  \item Computer Simulation --- Grade: 18.4/20
+  \item Signals and Systems --- Grade: 20/20
+  \item Stochastic Processes --- Grade: 19.5/20
+\end{itemize}
+\end{multicols}
+\vspace{-2pt}
+
+%-----------LANGUAGES-----------
+\section{Language Proficiency}
+\begin{itemize}[leftmargin=0.15in,label={},itemsep=6pt,parsep=0pt,topsep=4pt]
+  \small\item{Persian: Native $|$ English: C1 (IELTS Academic: 8.0) $|$ Dutch: Elementary proficiency (A2)}
+\end{itemize}
+
+%-----------SKILLS AND INTERESTS-----------
+\section{Skills \& Interests}
+\begin{itemize}[leftmargin=0.15in,label={},itemsep=6pt,parsep=0pt,topsep=4pt]
+  \small
+  \item{\textbf{Technical Skills:} Python, PyTorch, Java, C++, Linux, LaTeX, Git, and GitHub}
+  \item{\textbf{Interests:} Swimming, learning Dutch, chess, and guitar}
+\end{itemize}
+
+\end{document}

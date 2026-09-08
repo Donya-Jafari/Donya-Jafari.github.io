@@ -1,77 +1,42 @@
 (() => {
   const root = document.documentElement;
-  const button = document.querySelector('.theme-toggle');
-
-  const applyTheme = (value) => {
-    if (value === 'dark') {
-      root.setAttribute('data-theme', 'dark');
-    } else {
-      root.setAttribute('data-theme', 'light');
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+  const queryTheme = new URLSearchParams(location.search).get('theme');
+  const valid = value => value === 'dark' || value === 'light';
+  let stored;
+  try { stored = localStorage.getItem('theme'); } catch (_) { /* Storage is optional. */ }
+  let explicit = valid(queryTheme) ? queryTheme : valid(stored) ? stored : null;
+  const apply = theme => {
+    root.dataset.theme = theme;
+    const button = document.querySelector('.theme-toggle');
+    if (button) {
+      button.hidden = false;
+      button.setAttribute('aria-pressed', String(theme === 'dark'));
+      button.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`);
     }
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#181c20' : '#fafaf8');
   };
-
-  const getPreferredTheme = () => {
-    const params = new URLSearchParams(window.location.search);
-    const fromParam = params.get('theme');
-    if (fromParam === 'dark' || fromParam === 'light') {
-      return fromParam;
-    }
-
-    const stored = localStorage.getItem('theme');
-    if (stored === 'dark' || stored === 'light') {
-      return stored;
-    }
-
-    const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
-    return prefersDark ? 'dark' : 'light';
-  };
-
-  const updateUrlParam = (theme) => {
-    const params = new URLSearchParams(window.location.search);
-    params.set('theme', theme);
-    const next = `${window.location.pathname}?${params.toString()}`;
-    window.history.replaceState(null, '', next);
-  };
-
-  const updateLinks = (theme) => {
-    const origin = window.location.origin;
-    document.querySelectorAll('a[href]').forEach((link) => {
-      const href = link.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('mailto:')) {
-        return;
+  const persist = theme => { try { localStorage.setItem('theme', theme); } catch (_) { /* Continue without persistence. */ } };
+  apply(explicit || (media.matches ? 'dark' : 'light'));
+  if (valid(queryTheme)) persist(queryTheme);
+  document.addEventListener('DOMContentLoaded', () => {
+    apply(root.dataset.theme);
+    document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+      explicit = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      apply(explicit);
+      persist(explicit);
+      const url = new URL(location.href);
+      if (url.searchParams.has('theme')) {
+        url.searchParams.set('theme', explicit);
+        history.replaceState(null, '', url.pathname + url.search + url.hash);
       }
-      if (/^https?:/i.test(href)) {
-        return;
-      }
-      const url = new URL(href, window.location.href);
-      if (origin !== 'null' && url.origin !== origin) {
-        return;
-      }
-      url.searchParams.set('theme', theme);
-      link.setAttribute('href', `${url.pathname}?${url.searchParams.toString()}`);
     });
-  };
-
-  const initial = getPreferredTheme();
-  applyTheme(initial);
-  localStorage.setItem('theme', initial);
-  updateUrlParam(initial);
-  updateLinks(initial);
-
-  button?.addEventListener('click', () => {
-    const isDark = root.getAttribute('data-theme') === 'dark';
-    const next = isDark ? 'light' : 'dark';
-    applyTheme(next);
-    localStorage.setItem('theme', next);
-    updateUrlParam(next);
-    updateLinks(next);
   });
-
-  window.addEventListener('storage', (event) => {
-    if (event.key === 'theme' && (event.newValue === 'dark' || event.newValue === 'light')) {
-      applyTheme(event.newValue);
-      updateUrlParam(event.newValue);
-      updateLinks(event.newValue);
+  media.addEventListener('change', event => { if (!explicit) apply(event.matches ? 'dark' : 'light'); });
+  window.addEventListener('storage', event => {
+    if (event.key === 'theme') {
+      explicit = valid(event.newValue) ? event.newValue : null;
+      apply(explicit || (media.matches ? 'dark' : 'light'));
     }
   });
 })();
